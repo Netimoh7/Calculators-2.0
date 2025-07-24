@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Simple Calculator – Netimoh</title>
+  <style>
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f2f2f2;
+      text-align: center;
+      padding: 50px;
+    }
+
+    h1 {
+      color: #190659;
+    }
+
+    input[type="number"] {
+      padding: 10px;
+      margin: 10px;
+      width: 100px;
+      font-size: 18px;
+    }
+
+    select, button {
+      padding: 10px;
+      font-size: 18px;
+      margin: 10px;
+    }
+
+    #result {
+      font-size: 24px;
+      margin-top: 20px;
+      color: #3ffbfb;
+    }
+  </style>
+</head>
+<body>
+  <h1>Simple Calculator</h1>
+
+  <input type="number" id="num1" placeholder="First number">
+  <select id="operator">
+    <option value="+">+</option>
+    <option value="-">−</option>
+    <option value="*">×</option>
+    <option value="/">÷</option>
+  </select>
+  <input type="number" id="num2" placeholder="Second number">
+  <br>
+  <button onclick="calculate()">Calculate</button>
+
+  <div id="result"></div>
+
+  <script>
+    function calculate() {
+      let num1 = parseFloat(document.getElementById("num1").value);
+      let num2 = parseFloat(document.getElementById("num2").value);
+      let operator = document.getElementById("operator").value;
+      let result = "";
+
+      if (isNaN(num1) || isNaN(num2)) {
+        result = "Please enter valid numbers.";
+      } else {
+        switch (operator) {
+          case "+": result = num1 + num2; break;
+          case "-": result = num1 - num2; break;
+          case "*": result = num1 * num2; break;
+          case "/": result = num2 !== 0 ? num1 / num2 : "Can't divide by 0"; break;
+        }
+      }
+
+      document.getElementById("result").innerText = "Result: " + result;
+    }
+  </script>
+
+ 
+
+</body>
+</html>
